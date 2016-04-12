@@ -1,5 +1,6 @@
 package com.sample.androidsampleprjct.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,27 +11,32 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleExpandableListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.beardedhen.androidbootstrap.AwesomeTextView;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.sample.androidsampleprjct.R;
-import com.sample.androidsampleprjct.service.LotteryService;
+import com.sample.androidsampleprjct.module.LotteryService;
 import com.sample.androidsampleprjct.vo.Lottery;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LotteryActivity extends AppCompatActivity {
@@ -56,9 +62,9 @@ public class LotteryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lottery);
 
-        datalist.add(getString(R.string.str_lotteryDatafucai));
-        datalist.add(getString(R.string.str_lottaryTicai));
-        datalist.add(getString(R.string.str_lottaryZucai));
+        datalist.add(getString(R.string.code1));
+        datalist.add(getString(R.string.code2));
+        datalist.add(getString(R.string.code3));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -124,6 +130,10 @@ public class LotteryActivity extends AppCompatActivity {
         Button butSave;
         ListView listView;
         LotteryService service = new LotteryService();
+        BootstrapButton btnDelete;
+        BootstrapButton btnCustomBut;
+        List<Map<String, Object>> items;
+
         public PlaceholderFragment() {
         }
 
@@ -152,16 +162,43 @@ public class LotteryActivity extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_lottery_recommend, container, false);
+                    initLotteryRecommend(rootView);
                     break;
                 default:
                     rootView = inflater.inflate(R.layout.fragment_lottery, container, false);
             }
 
-            ButterKnife.bind(this, rootView);
             return rootView;
         }
 
+        private void initLotteryRecommend(View rootView) {
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void initMyLottery(View rootView) {
+
+
+
             spinnerLotteryCategory = (Spinner) rootView.findViewById(R.id.spinner_lotteryCategory);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, datalist);
@@ -171,34 +208,76 @@ public class LotteryActivity extends AppCompatActivity {
             butSave = (Button) rootView.findViewById(R.id.butSave);
             butSave.setOnClickListener(this);
 
+            btnCustomBut = (BootstrapButton) rootView.findViewById(R.id.btnCustomBut);
+            btnCustomBut.setOnClickListener(v -> {
+                Log.d("PlaceholderFragment", "aaaaaaaaaaaa");
+                Toast.makeText(getContext(), "https://github.com/Bearded-Hen/Android-Bootstrap", Toast.LENGTH_SHORT).show();
+            });
+            btnCustomBut.setOnClickListener(this);
+
             spinner2 = (EditText) rootView.findViewById(R.id.spinner2);
 
             listView = (ListView) rootView.findViewById(R.id.listView);
+            button = (Button) rootView.findViewById(R.id.button);
+            button.setOnClickListener(v->{
+                service.clearData();
+                eSelectAll();
+            });
+            eSelectAll();
         }
 
         private void eOnSaveClick() {
             Lottery lottery = new Lottery();
             lottery.setLotteryCode("fdsafdd");
             lottery.setCandidateCode(spinner2.getText().toString());
-            lottery.setExpect(spinnerLotteryCategory.getSelectedItemPosition()+"");
-            service.saveLottery(lottery);
+            lottery.setExpect(spinnerLotteryCategory.getSelectedItemPosition() + "");
+            long result =  service.saveLottery(lottery);
+            if (result>0){
+                eSelectAll();
+            }
 
         }
-        private void eSelectAll(){
+
+        private void eSelectAll() {
             List<Lottery> lotteryList = service.selectAll();
-            ArrayAdapter arrayAdapter = new ArrayAdapter<Lottery>(
-                    getActivity()
-                    ,android.R.layout.simple_list_item_1
-                    ,lotteryList);
-            listView.setAdapter(arrayAdapter);
+//            ArrayAdapter arrayAdapter = new ArrayAdapter<Lottery>(
+//                    getActivity()
+//                    ,android.R.layout.simple_list_item_1
+//                    ,lotteryList);
+//            listView.setAdapter(arrayAdapter);
+
+            items = new ArrayList<>();
+            for (Lottery lottery : lotteryList) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", lottery.getId());
+                map.put("expct", lottery.getExpect());
+                map.put("code", lottery.getLotteryCode());
+                map.put("candiNumber", lottery.getCandidateCode());
+                map.put("win", lottery.getIsWin());
+                items.add(map);
+            }
+
+//            SimpleAdapter simpleAdapter = new SimpleAdapter(getContext(), items, R.layout.fragment_lottery_list_column
+//                    , new String[]{"id", "expct", "code", "candiNumber", "win"}
+//                    , new int[]{R.id.txtId,R.id.txtExpect,R.id.txtCode,R.id.txtCadiNum,R.id.txtWin}
+//            );
+//            listView.setAdapter(simpleAdapter);
+            LotteryAdapter lotteryAdapter =  new LotteryAdapter(getContext());
+            listView.setAdapter(lotteryAdapter);
         }
+
+
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.butSave:
                     eOnSaveClick();
-                    eSelectAll();
+
                     break;
+                case R.id.btnCustomBut:
+                    Toast.makeText(getContext(), "https://github.com/Bearded-Hen/Android-Bootstrap", Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
 
@@ -206,6 +285,70 @@ public class LotteryActivity extends AppCompatActivity {
         public void onDestroyView() {
             super.onDestroyView();
             ButterKnife.unbind(this);
+        }
+        class ViewHodler{
+            public AwesomeTextView txtID;
+            public AwesomeTextView txtExpect;
+            public AwesomeTextView txtCadiNum;
+            public AwesomeTextView txtCode;
+            public AwesomeTextView txtWin;
+            public BootstrapButton btnDelete;
+
+        }
+        class  LotteryAdapter extends BaseAdapter{
+            private LayoutInflater mInflater;
+
+            public LotteryAdapter(Context context){
+                this.mInflater = LayoutInflater.from(context);
+            }
+            @Override
+            public int getCount() {
+                return items.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return items.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                ViewHodler holder = null;
+                if(convertView == null){
+                    convertView = mInflater.inflate(R.layout.fragment_lottery_list_column,null);
+                    holder = new ViewHodler();
+                    holder.txtID = (com.beardedhen.androidbootstrap.AwesomeTextView) convertView.findViewById(R.id.txtId);
+                    holder.btnDelete = (com.beardedhen.androidbootstrap.BootstrapButton) convertView.findViewById(R.id.btnDelete);
+                    holder.txtCadiNum = (com.beardedhen.androidbootstrap.AwesomeTextView) convertView.findViewById(R.id.txtCadiNum);
+                    holder.txtExpect = (com.beardedhen.androidbootstrap.AwesomeTextView) convertView.findViewById(R.id.txtExpect);
+                    holder.txtWin = (com.beardedhen.androidbootstrap.AwesomeTextView) convertView.findViewById(R.id.txtWin);
+                    holder.txtCode = (com.beardedhen.androidbootstrap.AwesomeTextView) convertView.findViewById(R.id.txtCode);
+                    convertView.setTag(holder);
+                }else{
+                    holder = (ViewHodler) convertView.getTag();
+                }
+
+                holder.txtID.setText(items.get(position).get("id")+"");
+                holder.txtExpect.setText((String) items.get(position).get("expct"));
+                holder.txtCadiNum.setText((String) items.get(position).get("candiNumber"));
+                holder.txtWin.setText((String) items.get(position).get("win"));
+                holder.txtCode.setText((String) items.get(position).get("code"));
+
+                holder.btnDelete.setOnClickListener(
+                        v->{
+                            service.deleteByID((Long) items.get(position).get("id"));
+                            eSelectAll();
+                        }
+                );
+
+                return convertView;
+            }
         }
     }
 
@@ -248,13 +391,17 @@ public class LotteryActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "GreenDao+Grid";
+                    return "GreenDao+ListView";
                 case 1:
-                    return "";
+                    return "OrmLite+RecyclerView";
+
 //                case 2:
 //                    return "推荐选号";
             }
             return null;
         }
     }
+
+
+
 }

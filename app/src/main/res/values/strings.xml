@@ -34,4 +34,13 @@
     <string name="str_lotteryDatafucai">福彩</string>
     <string name="str_lottaryTicai">体彩</string>
     <string name="str_lottaryZucai">足彩</string>
+    <string name="delete">删除</string>
+    <string name="code1">程序CODE1</string>
+    <string name="code2">程序CODE2</string>
+    <string name="code3">程序CODE3</string>
+    <string name="saveSuccess">保存成功</string>
+    <string name="searchSSQ">查看</string>
+    <string name="bullIsWin">未中奖</string>
+    <string name="str_Win">中奖</string>
+    <string name="str_ssqNotOpen">未开奖</string>
 </resources>

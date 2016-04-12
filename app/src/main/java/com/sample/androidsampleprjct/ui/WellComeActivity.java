@@ -126,7 +126,7 @@ public class WellComeActivity extends AppCompatActivity {
         mDisplay.getSize(outSize);
         Log.i("Main", "Width = " + outSize.x);
         Log.i("Main", "Height = " + outSize.y);
-        String url = "http://attachments.gfan.com/forum/201507/22/101051o3d5ffp7i6d3nbi2.jpg";
+        String url = "http://a.36krcnd.com/nil_class/d06769ce-cb76-48da-88f3-b1b6c75e3cad/_____2016-04-05___7.53.00.png!heading";
         Picasso.with(this).load(url).resize(outSize.x, outSize.y).into(iv);
 
 

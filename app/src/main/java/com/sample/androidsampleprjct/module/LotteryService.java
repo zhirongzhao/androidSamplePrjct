@@ -1,6 +1,6 @@
-package com.sample.androidsampleprjct.service;
+package com.sample.androidsampleprjct.module;
 
-import android.database.Cursor;
+import android.util.Log;
 
 import com.sample.androidsampleprjct.dao.lottery.LotteryDao;
 import com.sample.androidsampleprjct.util.BaseApplication;
@@ -26,5 +26,14 @@ public class LotteryService {
         String orderBy = idColumn + " COLLATE LOCALIZED ASC";
 
         return  dao.loadAll();
+    }
+
+    public void deleteByID(long id){
+        Log.d("LotteryServicexxxxxx", "log"+id);
+        dao.deleteByKey(id);
+
+    }
+    public void clearData(){
+        dao.deleteAll();
     }
 }

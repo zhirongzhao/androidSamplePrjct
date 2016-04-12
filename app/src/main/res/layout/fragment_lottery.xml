@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="11"
     android:layout_marginTop="4dp"
@@ -69,7 +70,22 @@
         android:weightSum="10"
         android:gravity="right"
         >
-    <Button
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="BootstrapButton"
+            android:layout_weight="5"
+            android:id="@+id/btnCustomBut"
+            app:bootstrapBrand="primary"
+            app:bootstrapSize="md"
+            app:buttonMode="regular"
+            app:showOutline="true"
+            app:roundedCorners="true"
+
+            />
+
+        <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/lotteryAdd"
@@ -78,6 +94,7 @@
         android:layout_weight="2"/>
 
     </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,10 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.sample.androidsampleprjct.R;
+import com.sample.androidsampleprjct.module.http.BaiduAPIService;
+import com.sample.androidsampleprjct.vo.remote.LotteryRemoteVO;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = "NavigationActivity_LOG";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,9 +94,15 @@ public class NavigationActivity extends AppCompatActivity
         if (id == R.id.nav_lottery) {
             startActivity(new Intent(getApplication(),LotteryActivity.class));
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(getApplication(),BullActivity.class));
         } else if (id == R.id.nav_slideshow) {
-
+            Log.d(TAG, "onNavigationItemSelected: ininin");
+            BaiduAPIService baiduAPIService = new BaiduAPIService();
+            Observable<LotteryRemoteVO> observable =  baiduAPIService.lotteryquery("ssq","10");
+            observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(lotteryRemoteVO -> {
+                        Log.d(TAG, "onNavigationItemSelected: "+lotteryRemoteVO.getRetMsg());
+                    });
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
