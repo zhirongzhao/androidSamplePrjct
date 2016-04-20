@@ -43,4 +43,10 @@
     <string name="bullIsWin">未中奖</string>
     <string name="str_Win">中奖</string>
     <string name="str_ssqNotOpen">未开奖</string>
+    <string name="touzhujilu">投注记录</string>
+    <string name="str_qi">"期：  "</string>
+    <string name="str_choiseOenBul">请选择一个篮球</string>
+    <string name="str_choiseSixRed">请选择6个红球！</string>
+    <string name="str_winNotifiy">中奖通知</string>
+    <string name="str_winPleaseCheck">期已中奖请及时查看</string>
 </resources>

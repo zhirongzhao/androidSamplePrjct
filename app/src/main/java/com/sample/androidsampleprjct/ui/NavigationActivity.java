@@ -1,9 +1,13 @@
 package com.sample.androidsampleprjct.ui;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -96,13 +100,20 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             startActivity(new Intent(getApplication(),BullActivity.class));
         } else if (id == R.id.nav_slideshow) {
-            Log.d(TAG, "onNavigationItemSelected: ininin");
-            BaiduAPIService baiduAPIService = new BaiduAPIService();
-            Observable<LotteryRemoteVO> observable =  baiduAPIService.lotteryquery("ssq","10");
-            observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(lotteryRemoteVO -> {
-                        Log.d(TAG, "onNavigationItemSelected: "+lotteryRemoteVO.getRetMsg());
-                    });
+
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+            builder.setSmallIcon(R.drawable.ic_announcement_black_18dp);
+            builder.setContentTitle("My notification");
+            builder.setContentText("Hello World!");
+
+            Intent intent = new Intent(this, BullActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(pendingIntent);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(1, builder.build());
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
