@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:weightSum="10"
+    >
+
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        android:id="@+id/txtId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        android:layout_weight="1" />
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCode"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        android:layout_weight="2" />
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtExpect"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        android:layout_weight="1" />
+
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCadiNum"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        android:layout_weight="3" />
+
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtWin"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        android:layout_weight="1" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDelete"
+        android:layout_weight="2"
+        android:text="@string/delete"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="2dp"
+        app:bootstrapSize="sm"
+        app:bootstrapBrand="primary"
+        app:buttonMode="regular"
+        app:showOutline="true"
+        app:roundedCorners="true"
+        />
+</LinearLayout>

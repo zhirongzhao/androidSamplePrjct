@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="13"
+    tools:context=".ui.BullActivity"
+    android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="9"
+        android:scrollbars="vertical"
+        >
+        <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7.5"
+            android:layout_marginBottom="2dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@id/indicator"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+
+                app:ci_width="10dp"
+                app:ci_height="4dp"
+                app:ci_margin="6dp"
+                app:ci_animator="@animator/indicator_animator"
+                app:ci_animator_reverse="@animator/indicator_animator_reverse"
+                app:ci_drawable="@android:color/black"/>
+
+
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:background="@color/material_red_100">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btn_search_ssq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/touzhujilu"
+                android:layout_marginRight="4dp"
+                android:layout_gravity="right|center_vertical"
+                android:textSize="5pt"
+                app:bootstrapBrand="danger"
+                app:bootstrapSize="xs"
+                app:showOutline="true"
+                app:roundedCorners="true"
+                android:onClick="onSaveClick"/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:id="@+id/openedList"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="1"
+            android:textColor="#e66b4f"
+            android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="2"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="3"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="4"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="5"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="6"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+        <Button
+            android:id="@+id/btn_7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="7"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="8"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="9"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="10"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="11"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="12"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_13"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="13"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_14"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="14"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_15"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="15"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_16"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="16"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="17"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="18"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_19"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="19"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="20"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_21"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="21"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="22"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_23"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="23"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_24"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="24"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_25"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="25"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_26"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="26"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_27"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="27"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_28"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="28"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:weightSum="7">
+        <Button
+            android:id="@+id/btn_29"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="29"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_30"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="30"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_31"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="31"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_32"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="32"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/btn_33"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring"
+            android:text="33"
+            android:textColor="#e66b4f"                         android:onClick="onRedClick"
+            android:textSize="19dp" />
+     </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/but_blu_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="1"
+            android:textColor="@color/colorPrimary"
+            android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="2"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="3"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="4"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="5"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="6"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="7"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/but_blu_8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="8"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="9"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="10"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="11"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="12"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_13"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="13"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_14"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="14"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/but_blu_15"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="15"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_16"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="16"
+            android:textColor="@color/colorPrimary"             android:onClick="onBluClick"
+            android:textSize="19dp" />
+
+        <Button
+            android:id="@+id/but_blu_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="17"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19dp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/but_blu_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="18"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19dp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/but_blu_19"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="19"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19dp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/but_blu_20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="20"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19dp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_special_disease_ring_blue"
+            android:text="21"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19dp"
+            android:visibility="invisible"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="10"
+        android:layout_gravity="right"
+        android:paddingRight="8dp"
+        >
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清除投注记录"
+            android:layout_weight="10"
+            android:layout_marginRight="4dp"
+            app:bootstrapBrand="primary"
+            app:bootstrapSize="lg"
+            app:showOutline="true"
+            android:onClick="onDeleteClick"
+            app:roundedCorners="true" />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="投注"
+            android:layout_weight="10"
+
+            app:bootstrapBrand="primary"
+            app:bootstrapSize="lg"
+            app:showOutline="true"
+            android:onClick="onSaveClick"
+            app:roundedCorners="true" />
+    </LinearLayout>
+
+
+</LinearLayout>

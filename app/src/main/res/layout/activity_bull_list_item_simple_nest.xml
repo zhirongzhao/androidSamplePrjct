@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <com.tubb.smrv.SwipeMenuLayout
+        android:id="@+id/sml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include android:id="@id/smMenuView" layout="@layout/activity_bull_list_item_simple_menu"/>
+        <include android:id="@+id/smContentView" layout="@layout/activity_bull_list_item_content"/>
+    </com.tubb.smrv.SwipeMenuLayout>
+</LinearLayout>

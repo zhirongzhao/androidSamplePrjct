@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape android:shape="oval" >
+            <corners android:radius="360dp"/>
+            <solid android:color="#00000000" />
+            <size android:width="170dp" android:height="170dp"/>
+        </shape>
+    </item>
+    <item android:bottom="8dp" android:right="8dp" android:top="8dp" android:left="8dp">
+        <shape android:shape="oval" >
+            <corners android:radius="360dp"/>
+            <stroke android:width= "2dp" android:color= "@color/bootstrap_brand_primary" />
+            <solid android:color="#00000000" />
+            <size android:width="162dp" android:height="162dp"/>
+        </shape>
+    </item>
+
+
+</layer-list>
